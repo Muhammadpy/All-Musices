@@ -225,10 +225,10 @@ def category_articles(request,category_id):
 def signer_sounds(request,signer_id):
     signers = Singer.objects.all()
     signer = Singer.objects.get(id=signer_id)
-    a = Article.objects.filter(signer=signer)
+    articles = Article.objects.filter(signer=signer)
     categories = Category.objects.all()
     context = {
-            "articles":a,
+        "articles": articles,
             "categories":categories,
              "signers":signers
             }
