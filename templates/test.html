@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .green{
+            color: green;
+        }
+        .red{
+            color: red;
+        }
+        .color-1{
+            color: aqua;
+        }
+        .color-2{
+            color: rgb(27, 30, 185);
+        }
+        .color-3{
+            color: rgb(231, 19, 143);
+        }
+        .color-4{
+            color: rgb(87, 223, 24);
+        }
+    </style>
+    <center>
+        {% if company !=  'Andijon Broyler MCHJ' %}
+            <h1>Welcome to {{ article.name|truncatechars_html:'3' }}  </h1>
+            <h1>Welcome to {{ article.text|truncatewords:'8' }}  </h1>
+            <h1> {{ article.text|wordwrap:'8' }}  </h1>
+            <h1> {{ article.name|cut:'Sar' }}  </h1>
+            <h1> {{ article.text|slugify }}  </h1>
+            <h1> {{ article.view|add:"40" }}  </h1>
+            <h1> {{ article.text|wordcount }}  </h1>
+            <h1> {{ article.text|length }}  </h1>
+            <h1> {{ article.text|length_is:"170" }}  </h1>
+            <h1> {{ services|first }}  </h1>
+            <h1> {{ services|last }}  </h1>
+            <h1> {{ services|random }}  </h1>
+            <h1> {{ services|slice:":3" }}  </h1>
+             
+            <ul>
+              
+                {% for s in services %}
+                    <li 
+                      class="color-{{ forloop.counter }}"
+                    >
+                    {{ forloop.counter }}.{{ s }}</li>
+                 {% endfor %}
+                
+            </ul>
+
+            <a href="{% url 'blog:detail' 9 %}">Atricle 1</a>
+
+        {% endif %}
+    </center>
+    
+</body>
+</html>
